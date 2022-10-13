@@ -1,16 +1,17 @@
-import App from "next/app"
-import { ThemeProvider } from "styled-components"
-import theme from "../components/theme"
-import { BaseStyles } from "../components/base"
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
 
-export default class MyApp extends App {
-  render() {
-    const { Component, pageProps } = this.props
-    return (
-      <ThemeProvider theme={theme}>
-        <BaseStyles />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    )
-  }
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <Head>
+        <title>My new cool app</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  )
 }
+
+export default MyApp
